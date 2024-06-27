@@ -61,9 +61,9 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 
 ## User Role Permission
 
-    --At First update migration table. 
-    --Then update model.
-    --Then Create Policy.
+-At First update migration table. 
+-Then update model.
+-Then Create Policy.
 
 ## Policy Create Command
 
