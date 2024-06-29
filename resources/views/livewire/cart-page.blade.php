@@ -25,6 +25,13 @@
                               <th scope="col" class="ps-6 py-3 text-start">
                                 <div class="flex items-center gap-x-2">
                                   <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-neutral-200">
+                                    Sl
+                                  </span>
+                                </div>
+                              </th>
+                              <th scope="col" class="ps-6 py-3 text-start">
+                                <div class="flex items-center gap-x-2">
+                                  <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-neutral-200">
                                     Product
                                   </span>
                                 </div>
@@ -67,14 +74,21 @@
                               <th scope="col" class="px-6 py-3 text-end"></th>
                             </tr>
                           </thead>
-
+                            @php
+                              $Sl=1;  
+                            @endphp
                           <tbody class="divide-y divide-gray-200 dark:divide-neutral-700">
                               @forelse($cart_items as $item)
-                               {{--  @php
-                                  if()    
-                                @endphp --}}
+                               
                                 <tr wire:key="{{ $item['product_id'] }}">
                                   <td class="size-px whitespace-nowrap">
+                                    <div class="px-6 py-3">
+                                      <div class="flex items-center gap-x-3">
+                                        {{ $Sl++ }}
+                                      </div>
+                                    </div>
+                                  </td>
+                                  <td class="h-px w-72 whitespace-nowrap">
                                     <div class="px-6 py-3">
                                       <div class="flex items-center gap-x-3">
                                         <img class="inline-block size-[38px] rounded-sm" src="{{ url('storage', $item['image']) }}" alt="{{$item['name']}}">

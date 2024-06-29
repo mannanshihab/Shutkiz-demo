@@ -49,8 +49,20 @@
                 </p>
               </div> 
               @foreach($product->ProductPrice as $PriceRange)
-                <div>Weight: {{ $PriceRange->weight }} = {{ Number::currency( $PriceRange->price, 'BDT') }}</div>
+                <ul class="grid w-full gap-6 md:grid-cols-2" wire:key="{{ $PriceRange->id }}">
+                    <li>
+                        <input wire:model='priceRange_id' class="hidden peer" id="hosting-small-{{ $PriceRange->id }}" type="radio" value="{{ $PriceRange->id }}" />
+                        <label class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700" for="hosting-small-{{ $PriceRange->id }}">
+                            <div class="block">
+                                <div class="w-full text-md font-semibold">
+                                    {{ $PriceRange->weight }} = {{ Number::currency( $PriceRange->price, 'BDT') }}
+                                </div>
+                            </div>
+                        </label>
+                    </li>
+                </ul>
               @endforeach
+          
               <div class="w-32 mb-8 ">
                 <label for="" class="w-full pb-1 text-xl font-semibold text-gray-700 border-b border-blue-300 dark:border-gray-600 dark:text-gray-400">Quantity</label>
                 <div class="relative flex flex-row w-full h-10 mt-6 bg-transparent rounded-lg">
