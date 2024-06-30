@@ -74,17 +74,14 @@
                               <th scope="col" class="px-6 py-3 text-end"></th>
                             </tr>
                           </thead>
-                            @php
-                              $Sl=1;  
-                            @endphp
+                           
                           <tbody class="divide-y divide-gray-200 dark:divide-neutral-700">
                               @forelse($cart_items as $item)
-                               
                                 <tr wire:key="{{ $item['product_id'] }}">
                                   <td class="size-px whitespace-nowrap">
                                     <div class="px-6 py-3">
                                       <div class="flex items-center gap-x-3">
-                                        {{ $Sl++ }}
+                                        {{ $item['id'] }}
                                       </div>
                                     </div>
                                   </td>
@@ -112,9 +109,9 @@
                                   </td>
                                   <td class="h-px w-72 whitespace-nowrap">
                                     <div class="px-6 py-3">
-                                      <button wire:click="decreaseQty({{ $item['product_id'] }})" class="border rounded-md py-2 px-4 mr-2">-</button>
+                                      <button wire:click="decreaseQty({{ $item['id'] }})" class="border rounded-md py-2 px-4 mr-2">-</button>
                                       <span class="text-center w-8">{{ $item['quantity']}}</span>
-                                      <button wire:click="increaseQty({{ $item['product_id'] }})" class="border rounded-md py-2 px-4 ml-2">+</button>
+                                      <button wire:click="increaseQty({{ $item['id'] }})" class="border rounded-md py-2 px-4 ml-2">+</button>
                                     </div>
                                   </td>
                                   <td class="size-px whitespace-nowrap">
@@ -126,7 +123,7 @@
                                   </td>
                                   <td class="size-px whitespace-nowrap">
                                     <div class="px-6 py-1.5">
-                                      <button wire:click="removeItem({{ $item['product_id'] }})" class="">
+                                      <button wire:click="removeItem({{ $item['id'] }})" class="">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
                                           <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm-1.72 6.97a.75.75 0 1 0-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 1 0 1.06 1.06L12 13.06l1.72 1.72a.75.75 0 1 0 1.06-1.06L13.06 12l1.72-1.72a.75.75 0 1 0-1.06-1.06L12 10.94l-1.72-1.72Z" clip-rule="evenodd" />
                                         </svg>
@@ -136,7 +133,7 @@
                                 </tr>
                               @empty
                                 <tr>
-                                  <td colspan="5" class="text-center py-4 font-semibold text-slate-500">No Items are avilable in Cart</td>
+                                  <td colspan="7" class="text-center py-4 font-semibold text-slate-500">No Items are avilable in Cart</td>
                                 </tr>
                               @endforelse
                           </tbody>

@@ -135,7 +135,7 @@ class OrderResource extends Resource
                                 ->required()
                                 ->columnSpan(4),
                             /* Select ProductPriceRange_id  call weight*/
-                            Select::make('Weight')
+                            Select::make('weight')
                                 ->options(fn(Get $get): Collection => ProductPriceRange::query()
                                     ->where('product_id', $get('product_id'))
                                     ->pluck('weight', 'id')

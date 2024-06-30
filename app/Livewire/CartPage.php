@@ -19,19 +19,19 @@ class CartPage extends Component
         $this->grand_total = CartManagement::calculateGrandTotal($this->cart_items);
     }
 
-    public function removeItem($product_id){
-        $this->cart_items = CartManagement::removeCartItems($product_id);
+    public function removeItem($id){
+        $this->cart_items = CartManagement::removeCartItems($id);
         $this->grand_total = CartManagement::calculateGrandTotal($this->cart_items);
         $this->dispatch('update-cart-count', total_count: count($this->cart_items))->to(Navbar::class);
     }
 
-    public function increaseQty($product_id){
-        $this->cart_items = CartManagement::incrementQuantityToCartItem($product_id);
+    public function increaseQty($id){
+        $this->cart_items = CartManagement::incrementQuantityToCartItem($id);
         $this->grand_total = CartManagement::calculateGrandTotal($this->cart_items);
     }
 
-    public function decreaseQty($product_id){
-        $this->cart_items = CartManagement::decrementQuantityToCartItem($product_id);
+    public function decreaseQty($id){
+        $this->cart_items = CartManagement::decrementQuantityToCartItem($id);
         $this->grand_total = CartManagement::calculateGrandTotal($this->cart_items);
     }
 

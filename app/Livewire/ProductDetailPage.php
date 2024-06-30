@@ -6,15 +6,20 @@ use App\Helpers\CartManagement;
 use App\Livewire\Partials\Navbar;
 use App\Models\Product;
 use Livewire\Attributes\Title;
+use Livewire\Attributes\Validate;
 use Livewire\Component;
 #[Title('Product Details - Shutkiz')]
 class ProductDetailPage extends Component
 {
     public $slug;
+
+    #[Validate('required', message: 'Please provide a post title')]
     public $priceRange_id;
+    
     public $quantity =  1;
 
     public function priceRange(){
+        $this->validate();
         $this->priceRange_id;
     }
     public function increaseQty(){

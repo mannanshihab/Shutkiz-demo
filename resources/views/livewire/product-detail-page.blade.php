@@ -2,10 +2,10 @@
   <section class="overflow-hidden bg-white py-11 font-poppins dark:bg-gray-800">
     <div class="max-w-6xl px-4 py-4 mx-auto lg:py-8 md:px-6">
       <div class="flex flex-wrap -mx-4">
-        <div class="w-full mb-8 md:w-1/2 md:mb-0" x-data="{ mainImage: '{{ url('storage', $product -> images )}}' }">
+        <div class="w-full mb-8 md:w-1/2 md:mb-0 p-2" x-data="{ mainImage: '{{ url('storage', $product -> images )}}' }">
           <div class="">
             <!-- main image -->
-            <div class="relative mb-3 lg:mb-10 lg:h-2/4 ">
+            <div class="relative mb-3 lg:mb-10 lg:h-2/4 border-solid border-4 border-blue-200 rounded-xl">
               <img x-bind:src="mainImage" alt="" class="object-cover w-full lg:h-full ">
             </div><!--end main image -->
 
@@ -25,17 +25,10 @@
                 <h2 class="text-lg font-bold text-gray-700 dark:text-gray-400">Free Shipping</h2>
               </div>
             </div>
-
-            <div class="px-6 pb-6 mt-6">
-                <label for="" class="w-full pb-1 text-xl font-semibold text-gray-700 border-b border-blue-300 dark:border-gray-600 dark:text-gray-400">Product Specification</label>
-                <div class="relative flex flex-row w-full h-10 mt-6 bg-transparent rounded-lg">    
-                   
-                </div>
-            </div>
           </div>
         </div>
 
-        <div class="w-full px-4 md:w-1/2 ">
+        <div class="w-full px-4 md:w-1/2 p-2">
           <div class="lg:pl-20">
               <div class="mb-8 [&>ul]:list-disc [&>ul]:ml-4">
                 <h2 class="max-w-xl mb-6 text-2xl font-bold dark:text-gray-400 md:text-4xl">
@@ -47,22 +40,29 @@
                 <p class="max-w-md text-gray-700 dark:text-gray-400">
                   {!! Str::markdown( $product->description )!!} 
                 </p>
+              </div>
+              <div class="mb-8 [&>ul]:list-disc [&>ul]:ml-4">
               </div> 
               @foreach($product->ProductPrice as $PriceRange)
-                <ul class="grid w-full gap-6 md:grid-cols-2" wire:key="{{ $PriceRange->id }}">
+                <ul class="grid w-full  gap-6 md:grid-cols-2" wire:key="{{ $PriceRange->id }}">
                     <li>
                         <input wire:model='priceRange_id' class="hidden peer" id="hosting-small-{{ $PriceRange->id }}" type="radio" value="{{ $PriceRange->id }}" />
-                        <label class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700" for="hosting-small-{{ $PriceRange->id }}">
+                        <label class="inline-flex text-center w-full mt-2 p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700" for="hosting-small-{{ $PriceRange->id }}">
                             <div class="block">
                                 <div class="w-full text-md font-semibold">
                                     {{ $PriceRange->weight }} = {{ Number::currency( $PriceRange->price, 'BDT') }}
                                 </div>
                             </div>
                         </label>
+                        @error('priceRange_id')
+                      <div class="text-red-500 text-sm">
+                        {{ $message }}
+                      </div>
+                    @enderror
                     </li>
+                    
                 </ul>
               @endforeach
-          
               <div class="w-32 mb-8 ">
                 <label for="" class="w-full pb-1 text-xl font-semibold text-gray-700 border-b border-blue-300 dark:border-gray-600 dark:text-gray-400">Quantity</label>
                 <div class="relative flex flex-row w-full h-10 mt-6 bg-transparent rounded-lg">
@@ -75,20 +75,20 @@
                   </button>
                 </div>
               </div>
+              <div class="flex flex-wrap items-center gap-4">
+                  <button wire:click="addToCart({{ $product->id }})" class="w-full p-4 bg-blue-500 rounded-md lg:w-2/5 dark:text-gray-200 text-gray-50 hover:bg-blue-600 dark:bg-blue-500 dark:hover:bg-blue-700">
+                    <span wire:loading.remove wire:target='addToCart({{ $product->id }})'>Add to cart</span>
+                    <span wire:loading wire:target='addToCart({{ $product->id }})'>
+                      <div class="animate-spin inline-block size-6 border-[3px] border-current border-t-transparent text-white rounded-full dark:text-white" role="status" aria-label="loading">
+                          <span class="sr-only">Loading...</span>
+                      </div>
+                    </span>
+                  </button>
+              </div>
           </div>
-          <div class="flex flex-wrap items-center gap-4">
-              <button wire:click="addToCart({{ $product->id }})" class="w-full p-4 bg-blue-500 rounded-md lg:w-2/5 dark:text-gray-200 text-gray-50 hover:bg-blue-600 dark:bg-blue-500 dark:hover:bg-blue-700">
-                <span wire:loading.remove wire:target='addToCart({{ $product->id }})'>Add to cart</span>
-                <span wire:loading wire:target='addToCart({{ $product->id }})'>
-                  <div class="animate-spin inline-block size-6 border-[3px] border-current border-t-transparent text-white rounded-full dark:text-white" role="status" aria-label="loading">
-                      <span class="sr-only">Loading...</span>
-                  </div>
-                </span>
-              </button>
-          </div>
+         
         </div>
       </div>
-    </div>
     </div>
   </section>
 </div>
