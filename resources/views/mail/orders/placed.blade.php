@@ -1,11 +1,12 @@
 <x-mail::message>
-    # Order Placed Successfully !
-    Thank You for your order. Your order number is: #2024{{$order->id}}.
+# Order Placed Successfully !
 
-    <x-mail::button :url="$url">
-        View Order
-    </x-mail::button>
+Thank You for your order. Your order number is: {{ now()->year }}-000{{$order->id}}.
 
-    Thanks,<br>
-    {{ config('app.name') }}
+<x-mail::button :url="$url">
+    View Order
+</x-mail::button>
+
+Thanks,<br>
+{{ config('app.name') }}
 </x-mail::message>

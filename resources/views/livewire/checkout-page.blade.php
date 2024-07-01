@@ -206,6 +206,9 @@
 										<p class="text-sm text-gray-500 truncate dark:text-gray-400">
 											Quantity: {{$cart_items_summary['quantity']}}
 										</p>
+										<p class="text-sm text-gray-500 truncate dark:text-gray-400">
+											Weight: {{$cart_items_summary['priceRange_id']}}
+										</p>
 									</div>
 									<div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
 									{{Number::currency($cart_items_summary['total_amount'], 'BDT')}}

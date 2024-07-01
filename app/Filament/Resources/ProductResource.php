@@ -120,6 +120,8 @@ class ProductResource extends Resource
                 ->searchable(),
                 TextColumn::make('ProductPrice.price')
                 ->label('Price')
+                ->money('BDT')
+                ->numeric()
                 ->searchable(),
                 IconColumn::make('is_featured')
                     ->boolean()->toggleable(isToggledHiddenByDefault:true),

@@ -55,10 +55,10 @@
                             </div>
                         </label>
                         @error('priceRange_id')
-                      <div class="text-red-500 text-sm">
-                        {{ $message }}
-                      </div>
-                    @enderror
+                          <div class="text-red-500 text-sm">
+                            {{ $message }}
+                          </div>
+                        @enderror
                     </li>
                     
                 </ul>

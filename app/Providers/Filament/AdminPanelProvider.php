@@ -32,9 +32,13 @@ class AdminPanelProvider extends PanelProvider
             ->profile()
             ->userMenuItems([
                 MenuItem::make()
-                ->label('Dashboard')
-                ->icon('heroicon-o-home')
-                ->url('/admin')
+                    ->label('Dashboard')
+                    ->icon('heroicon-o-home')
+                    ->url('/admin'),
+                MenuItem::make()
+                    ->label('Frontend')
+                    ->icon('heroicon-o-bug-ant')
+                    ->url('/')
             ])
             ->colors([
                 'primary' => Color::Teal,

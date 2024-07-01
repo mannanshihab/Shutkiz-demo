@@ -157,13 +157,13 @@
                           </span>
                         </div>
                       </th>
-                      {{-- <th scope="col" class="ps-6 py-3 text-start">
+                      <th scope="col" class="ps-6 py-3 text-start">
                         <div class="flex items-center gap-x-2">
                           <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-neutral-200">
                             Weight
                           </span>
                         </div>
-                      </th> --}}
+                      </th>
                       <th scope="col" class="px-6 py-3 text-start">
                         <div class="flex items-center gap-x-2">
                           <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-neutral-200">
@@ -203,11 +203,11 @@
                               </div>
                             </div>
                           </td>
-                         {{--  <td class="h-px w-72 whitespace-nowrap">
+                          <td class="h-px w-72 whitespace-nowrap">
                             <div class="px-6 py-3">
-                              <span class="block text-sm text-gray-500 dark:text-neutral-500">{{$item['weight']}}</span>
+                              <span class="block text-sm text-gray-500 dark:text-neutral-500">{{$item['priceRange_id']}}</span>
                             </div>
-                          </td> --}}
+                          </td>
                           <td class="h-px w-72 whitespace-nowrap">
                             <div class="px-6 py-3">
                               <span class="block text-sm font-semibold text-gray-800 dark:text-neutral-200">Unit Price</span>

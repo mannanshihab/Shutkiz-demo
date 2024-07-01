@@ -13,7 +13,7 @@ class ProductDetailPage extends Component
 {
     public $slug;
 
-    #[Validate('required', message: 'Please provide a post title')]
+    #[Validate('required', message: 'Please Select One')]
     public $priceRange_id;
     
     public $quantity =  1;
@@ -32,7 +32,9 @@ class ProductDetailPage extends Component
     }
     #add to cart
     public function addToCart($product_id){
-        
+        $this->validate([
+            'priceRange_id'        => 'required',
+        ]);
         $total_count = CartManagement::addItemToCartWithQty($product_id, $this->priceRange_id, $this->quantity);
         $this->dispatch('update-cart-count', total_count: $total_count)->to(Navbar::class);
     }

@@ -104,9 +104,16 @@ class CheckoutPage extends Component
         $order->save();
         $address->order_id = $order->id;
         $address->save();
+
+        #Order Item Details come from model
         $order->items()->createMany($cart_items);
+
+        #Clear Cart
         CartManagement::clearCartItemsFromCookie();
+
+        #Mail Send User
         Mail::to(request()->user())->send(new OrderPlaced($order));
+          
         return redirect($redirect_url);
     }
     public function render()
