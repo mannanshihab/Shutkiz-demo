@@ -40,33 +40,33 @@ class ProductsPage extends Component
     public function render()
     {
         
-        $products = Product::query()->with('ProductPrice')->where('is_active', 1)->Paginate(9);
+        $productQuery = Product::query()->with('ProductPrice')->where('is_active', 1)->orderByDesc('created_at');
         
-        //Filter is_featured
+        #Filter is_featured
         if($this->featured_product){
-            Product::where('is_featured', 1);
+            $productQuery->where('is_featured', 1);
         }
 
-        //Filter is_featured
+        #Filter on_sale
         if($this->on_sale){
-            Product::where('on_sale', 1);
+            $productQuery->where('on_sale', 1);
         }
 
         //Price Filter
         if($this->price_range){
-            ProductPriceRange::whereBetween('price', ['200', $this->price_range]);
+            //$productQuery->ProductPrice->whereBetween('price', ['200', $this->price_range]);
         }
 
         //Sort
         if($this->sort == 'latest'){
-            Product::latest();
+            $productQuery->latest();
         }
         if($this->sort == 'price'){
-            ProductPriceRange::orderBy('price');
+            //$productQuery->ProductPrice->orderBy('price');
         }
 
         return view('livewire.products-page',[
-            'products' => $products
+            'products' => $productQuery->Paginate(9)
         ]);
     }
 }

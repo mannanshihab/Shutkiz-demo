@@ -10,13 +10,16 @@ use App\Livewire\BlogPage;
 use App\Livewire\CancelPage;
 use App\Livewire\CartPage;
 use App\Livewire\CheckoutPage;
+use App\Livewire\ContactPage;
 use App\Livewire\HomePage;
 use App\Livewire\MyOrderDetailsPage;
 use App\Livewire\MyOrdersPage;
+use App\Livewire\PrivacyPolicyPage;
 use App\Livewire\ProductDetailPage;
 use App\Livewire\ProductsPage;
 use App\Livewire\Recipes;
 use App\Livewire\RecipesDetails;
+use App\Livewire\ReturnsPage;
 use App\Livewire\SuccessPage;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
@@ -38,6 +41,9 @@ Route::get('/products/{slug}', ProductDetailPage::class);
 Route::get('/blogs', BlogPage::class);
 Route::get('/blogs/{slug}', BlogDetailsPage::class);
 Route::get('/recipes', Recipes::class);
+Route::get('/contact', ContactPage::class);
+Route::get('/returns-policy', ReturnsPage::class);
+Route::get('/privacy-policy', PrivacyPolicyPage::class);
 
 Route::middleware('guest')->group(function(){
     Route::get('/login', LoginPage::class)->name('login');
