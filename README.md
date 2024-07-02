@@ -2,7 +2,8 @@
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-- php artisan make:filament-resource Customer
+- php artisan make:filament-resource Contact 
+
 
 - php artisan make:filament-relation-manager OrderResource address street_address
 
@@ -15,6 +16,8 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 - php artisan make:filament-page ViewCategory --resource=CategoryResource --type=ViewRecord
 
 ## Restore
+- php artisan make:filament-resource Customer --soft-deletes
+
 - php artisan make:filament-resource Recipe --generate --softdelete
 ## Install Tailwind CSS
     npm install -D tailwindcss postcss autoprefixer
@@ -74,4 +77,5 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
     php artisan make:policy BlogPolicy --model=Blog
     php artisan make:policy CarouselPolicy --model=Carousel
     php artisan make:policy RecipePolicy --model=Recipe
+    php artisan make:policy ContactPolicy --model=Contact
 

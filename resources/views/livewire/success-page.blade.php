@@ -20,7 +20,7 @@
           <p class="mb-2 text-sm leading-5 text-gray-600 dark:text-gray-400 ">
             Order Number: </p>
           <p class="text-base font-semibold leading-4 text-gray-800 dark:text-gray-400">
-          {{$order->address->order_id}} </p>
+          {{now()->year }}-000{{$order->address->order_id}} </p>
         </div>
         <div class="w-full px-4 mb-4 md:w-1/4">
           <p class="mb-2 text-sm leading-5 text-gray-600 dark:text-gray-400 ">

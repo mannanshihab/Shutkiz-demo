@@ -3,7 +3,7 @@
     <!-- Grid -->
     <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
       <div class="col-span-full lg:col-span-3">
-        <a wire:navigate class="flex-none text-xl font-semibold text-white dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" href="#" aria-label="Brand">
+        <a wire:navigate class="flex-none text-xl font-semibold text-white dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" href="/" aria-label="Brand">
           <img src="{{ asset('sutkiz/Shutkiz.png')}}" class="w-32 h-16" alt="Shutkiz.png">
         </a>
         <p class="mt-3 text-white text-sm md:text-base lg:text-lg dark:text-white">
@@ -16,9 +16,9 @@
         <h4 class="font-semibold text-gray-100">Menu</h4>
 
         <div class="mt-5 grid space-y-3">
-          <p><a class="inline-flex gap-x-2 text-gray-400 hover:text-gray-200 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" href="/blogs">Blogs</a></p>
-          <p><a class="inline-flex gap-x-2 text-gray-400  dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" {{ request()->is('products') ? 'hover:text-gray-200' : 'text-gray-500' }} href="/products">All Products</a></p>
-          <p><a class="inline-flex gap-x-2 text-gray-400 hover:text-gray-200 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" href="/recipes">Recipe</a></p>
+          <p><a class="inline-flex gap-x-2 text-gray-400 hover:text-gray-200 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" wire:navigate href="/blogs">Blogs</a></p>
+          <p><a class="inline-flex gap-x-2 text-gray-400  dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" {{ request()->is('products') ? 'hover:text-gray-200' : 'text-gray-500' }} wire:navigate href="/products">All Products</a></p>
+          <p><a class="inline-flex gap-x-2 text-gray-400 hover:text-gray-200 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" wire:navigate href="/recipes">Recipe</a></p>
         </div>
       </div>
       <!-- End Col -->
@@ -27,10 +27,10 @@
         <h4 class="font-semibold text-gray-100">About</h4>
 
         <div class="mt-5 grid space-y-3">
-          <p><a class="inline-flex gap-x-2 text-gray-400 hover:text-gray-200 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" href="/contact">Contact us</a></p>
-          <p><a class="inline-flex gap-x-2 text-gray-400 hover:text-gray-200 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" href="/returns-policy">Returns</a></p>
+          <p><a class="inline-flex gap-x-2 text-gray-400 hover:text-gray-200 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" wire:navigate href="/contact">Contact us</a></p>
+          <p><a class="inline-flex gap-x-2 text-gray-400 hover:text-gray-200 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" wire:navigate href="/returns-policy">Returns</a></p>
 
-          <p><a class="inline-flex gap-x-2 text-gray-400 hover:text-gray-200 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" href="/privacy-policy">Privacy Policy</a></p>
+          <p><a class="inline-flex gap-x-2 text-gray-400 hover:text-gray-200 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" wire:navigate href="/privacy-policy">Privacy Policy</a></p>
         </div>
       </div>
       <!-- End Col -->
