@@ -13,7 +13,7 @@ class ProductDetailPage extends Component
 {
     public $slug;
 
-    #[Validate('required', message: 'Please Select One')]
+    #[Validate('required', message: 'Please Select One Price')]
     public $priceRange_id;
     
     public $quantity =  1;

@@ -11,10 +11,10 @@ class CreateCarousel extends CreateRecord
 {
     protected static string $resource = CarouselResource::class;
 
-    /* protected function getRedirectUrl(): string 
+    protected function getRedirectUrl(): string 
     { 
         return $this->getResource()::getUrl('index'); 
-    }  */
+    } 
 
     protected function mutateFormDataBeforeCreate(array $data): array
     {
